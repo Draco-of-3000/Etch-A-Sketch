@@ -35,6 +35,25 @@ function applyHoverEffect() {
     });
 };
 
+// Function to apply RGB hover effect to cells
+function applyRGB() {
+    // Select all cells in grid
+    const cells = document.querySelectorAll('#grid div');
+  
+    // Add mouseover event listener to cells
+    cells.forEach(cell => {
+        cell.addEventListener('mouseover', event => {
+            // Generate random values for Red, Green, and Blue (RGB)
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+
+            event.target.classList.add('hovered'); // Add hovered class to cells in when hovered upon
+            event.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        });
+    });
+};
+
 
 // Function to apply RGB hover effect
 function hoverRGB () {
@@ -76,7 +95,7 @@ function resizeGrid () {
     // Code to prompt user for squares per size
     resizeButton.addEventListener('click', () => {
         //Prompt user for squares per side
-        const squaresPerSide = prompt('Enter the number of squares per side for the new grid');
+        const squaresPerSide = prompt('Enter the number of squares per side for the new grid maximum 100');
         const pixelSize = 800 / squaresPerSide;
   
         // Update the grid template columns and rows to match the new cell size
@@ -106,7 +125,9 @@ reset.addEventListener('click', resetGrid);
 const resizeButton = document.querySelector('#resize');
 resizeButton.addEventListener('click', resizeGrid);
 
-
+// When RGB Mode button is clicked
+const rgbMode = document.querySelector('#RGB');
+rgbMode.addEventListener('click', applyRGB);
 
 
 
