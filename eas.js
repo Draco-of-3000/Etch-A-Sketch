@@ -54,18 +54,6 @@ function applyRGB() {
     });
 };
 
-
-// Function to apply RGB hover effect
-function hoverRGB () {
-    // Generate random values for Red, Green, and Blue (RGB)
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
-
-    // Construct and return the random color as an RGB string
-    return `rgb(${r}, ${g}, ${b})`;
-};
-
 //Function to reset grid
 function resetGrid() {
     // Code to remove hover effect
