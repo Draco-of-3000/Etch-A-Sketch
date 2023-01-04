@@ -23,7 +23,7 @@ for (let i = 0; i < 256; i++) {
 
 
 // Code for hover effect
-const cells = document.querySelectorAll('#grid div'); // Select all cells in grid 
+let cells = document.querySelectorAll('#grid div'); // Select all cells in grid 
 const reset = document.querySelector('#reset');       // Select reset button
 const resizeButton = document.querySelector('#resize');     // Select resize button
 
@@ -56,5 +56,17 @@ resizeButton.addEventListener('click', () => {
       const cell = document.createElement('div');
       container.appendChild(cell);
     }
-  });
+
+    // Re-assign cells variable to a new NodeList of all div elements in the grid
+    cells = document.querySelectorAll('#grid div');
+
+    // Add mouseover event listener to the new set of cells
+    cells.forEach(cell => {
+        cell.addEventListener('mouseover', event => {
+            event.target.classList.add('hovered'); // Add hovered class to cells in when hovered upon
+        });
+    });
+   
+    
+});
 
