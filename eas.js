@@ -38,6 +38,19 @@ reset.addEventListener('click', () => {
     cells.forEach(cell => {
         cell.classList.remove('hovered');
     });
+
+    // Reset the grid template columns and rows to create a 16x16 grid
+    container.style.gridTemplateColumns = 'repeat(16, 50px)';
+    container.style.gridTemplateRows = 'repeat(16, 50px)';
+
+    // Remove all cells from the grid
+    container.innerHTML = '';
+
+    // Create a new 16x16 grid
+    for (let i = 0; i < 256; i++) {
+        const cell = document.createElement('div');
+        container.appendChild(cell);
+    }
 });
 
 // Code to prompt user for squares per size
@@ -68,5 +81,5 @@ resizeButton.addEventListener('click', () => {
     });
    
     
-});;
+});
 
