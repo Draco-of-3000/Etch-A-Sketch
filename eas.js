@@ -68,5 +68,5 @@ resizeButton.addEventListener('click', () => {
     });
    
     
-});
+});;
 
