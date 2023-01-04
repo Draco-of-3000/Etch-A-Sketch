@@ -40,5 +40,21 @@ reset.addEventListener('click', () => {
     });
 });
 
-
+// Code to prompt user for squares per size
+resizeButton.addEventListener('click', () => {
+    //Prompt user for squares per side
+    const squaresPerSide = prompt('Enter the number of squares per side for the new grid');
+    const pixelSize = 800 / squaresPerSide;
+  
+    // Update the grid template columns and rows to match the new cell size
+    container.style.gridTemplateColumns = `repeat(${squaresPerSide}, ${pixelSize}px)`;
+    container.style.gridTemplateRows = `repeat(${squaresPerSide}, ${pixelSize}px)`;
+  
+    // Create a new grid with the specified number of squares per side
+    container.innerHTML = '';
+    for (let i = 0; i < squaresPerSide ** 2; i++) {
+      const cell = document.createElement('div');
+      container.appendChild(cell);
+    }
+  });
 
