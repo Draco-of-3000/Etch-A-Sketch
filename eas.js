@@ -14,6 +14,7 @@ container.style.display = 'grid';
 container.style.gridTemplateColumns = 'repeat(16, 50px)';
 container.style.gridTemplateRows = 'repeat(16, 50px)';
 
+let cells = document.querySelectorAll('#grid div'); // Select all cells in grid 
 
 // Create 256 div elements to fill the grid
 for (let i = 0; i < 256; i++) {
@@ -22,16 +23,25 @@ for (let i = 0; i < 256; i++) {
 }
 
 
-// Code for hover effect
-let cells = document.querySelectorAll('#grid div'); // Select all cells in grid 
-const reset = document.querySelector('#reset');       // Select reset button
-const resizeButton = document.querySelector('#resize');     // Select resize button
+// Select reset and resize button
+const reset = document.querySelector('#reset');       
+const resizeButton = document.querySelector('#resize');   
 
-cells.forEach(cell => {
-    cell.addEventListener('mouseover', event => {
-        event.target.classList.add('hovered'); // Add hovered class to cells in when hovered upon
+// Function to apply hover effect to cells
+function applyHoverEffect() {
+    // Select all cells in grid
+    const cells = document.querySelectorAll('#grid div');
+  
+    // Add mouseover event listener to cells
+    cells.forEach(cell => {
+        cell.addEventListener('mouseover', event => {
+            event.target.classList.add('hovered'); // Add hovered class to cells in when hovered upon
+        });
     });
-});
+};
+
+// Apply hover effect to cells
+applyHoverEffect();
 
 // Code to remove hover effect
 reset.addEventListener('click', () => {
@@ -50,6 +60,7 @@ reset.addEventListener('click', () => {
     for (let i = 0; i < 256; i++) {
         const cell = document.createElement('div');
         container.appendChild(cell);
+        applyHoverEffect();
     }
 });
 
@@ -70,15 +81,8 @@ resizeButton.addEventListener('click', () => {
       container.appendChild(cell);
     }
 
-    // Re-assign cells variable to a new NodeList of all div elements in the grid
-    cells = document.querySelectorAll('#grid div');
-
-    // Add mouseover event listener to the new set of cells
-    cells.forEach(cell => {
-        cell.addEventListener('mouseover', event => {
-            event.target.classList.add('hovered'); // Add hovered class to cells in when hovered upon
-        });
-    });
+    // Re-apply hover effect to cells
+    applyHoverEffect();
    
     
 });
