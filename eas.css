@@ -2,10 +2,6 @@
 #grid {
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(16px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(16px, 1fr));
-    width: 800px;
-    height: 800px;
 }
 
 .headerContainer {
@@ -24,3 +20,4 @@
 #grid div.hovered {
     background-color: black;
 }
+
