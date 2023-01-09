@@ -16,7 +16,7 @@ container.style.gridTemplateRows = 'repeat(16, 50px)';
 
 let cells = document.querySelectorAll('#grid div'); // Select all cells in grid 
 
-// Create 256 div elements to fill the grid
+// Create 256 div elements (cells, 256 because a 16x16 grid has 256 cells) to fill the grid
 for (let i = 0; i < 256; i++) {
   const cell = document.createElement('div');
   container.appendChild(cell);
