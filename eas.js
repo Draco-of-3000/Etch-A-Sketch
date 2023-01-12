@@ -22,6 +22,54 @@ for (let i = 0; i < 256; i++) {
   container.appendChild(cell);
 }
 
+
+
+// Apply hover effect to cells
+applyHoverEffect();
+
+// When Reset button is clicked
+const reset = document.querySelector('#reset'); 
+reset.addEventListener('click', resetGrid);
+
+// When Resize button is clicked
+const resizeButton = document.querySelector('#resize');
+resizeButton.addEventListener('click', resizeGrid);
+
+// When RGB Mode button is clicked
+const rgbMode = document.querySelector('#RGB');
+rgbMode.addEventListener('click', applyRGB);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Function to apply hover effect to cells
 function applyHoverEffect() {
     // Select all cells in grid
@@ -102,20 +150,6 @@ function resizeGrid () {
     });
 };
 
-// Apply hover effect to cells
-applyHoverEffect();
-
-// When Reset button is clicked
-const reset = document.querySelector('#reset'); 
-reset.addEventListener('click', resetGrid);
-
-// When Resize button is clicked
-const resizeButton = document.querySelector('#resize');
-resizeButton.addEventListener('click', resizeGrid);
-
-// When RGB Mode button is clicked
-const rgbMode = document.querySelector('#RGB');
-rgbMode.addEventListener('click', applyRGB);
 
 
 
